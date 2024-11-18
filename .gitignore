@@ -1,0 +1,62 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de logs
+logs
+*.log
+npm-debug.log*
+
+# Dependencias de paquetes
+node_modules/
+bower_components/
+
+# Archivos de construcción
+dist/
+build/
+
+# Cache de composer y directorios temporales
+vendor/
+composer.lock
+
+# Cache de empaquetadores
+/.sass-cache
+/.npm
+/.yarn-cache
+/.yarn
+
+# Archivos específicos de IDEs
+*.swp
+*~
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Archivos de entorno
+.env
+.env.local
+.env.*.local
+
+# Archivos de bases de datos locales
+*.sqlite
+
+# Directorios de caché y almacenamiento de Laravel
+/storage/
+bootstrap/cache/
+
+# Archivos binarios
+*.dll
+*.exe
+
+# Cualquier otro archivo generado por herramientas
+*.pyc
+*.pyo
+__pycache__/
+
+# Python virtual environment
+env/
+venv/
+
+# Ruby
+*.gem
