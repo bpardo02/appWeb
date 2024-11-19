@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% block title %}Lista de Inmuebles - Gestión de
+Inmuebles{% endblock %} {% block content %}
+<h1 class="mb-4">Lista de Inmuebles</h1>
+
+{% if inmuebles %}
+<div class="row">
+  {% for inmueble in inmuebles %}
+  <div class="col-md-4 mb-4">
+    <div class="card">
+      {% if inmueble.imagen %}
+      <img
+        src="{{ inmueble.imagen.url }}"
+        class="card-img-top"
+        alt="{{ inmueble.nombre }}"
+      />
+      {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">{{ inmueble.nombre }}</h5>
+        <p class="card-text">
+          <strong>Dirección:</strong> {{ inmueble.direccion }}<br />
+          <strong>Comuna:</strong> {{ inmueble.comuna.nombre }}<br />
+          <strong>Precio Mensual:</strong> ${{ inmueble.precio_mensual }}
+        </p>
+        <a
+          href="{% url 'detalle_inmueble' inmueble.pk %}"
+          class="btn btn-primary"
+          >Ver Detalles</a
+        >
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<p>No hay inmuebles disponibles en este momento.</p>
+{% endif %} {% endblock %}

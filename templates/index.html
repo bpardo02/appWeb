@@ -1,0 +1,9 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="text-center">Bienvenido a Gestión de Inmuebles</h1>
+<p class="text-center">Explora las diferentes secciones de nuestro sitio:</p>
+<div class="d-flex justify-content-center">
+  <a href="{% url 'lista_inmuebles' %}" class="btn btn-primary me-3"
+    >Ver Inmuebles</a
+  >
+</div>
+{% endblock %}

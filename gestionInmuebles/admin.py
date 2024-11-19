@@ -1,20 +1,33 @@
 from django.contrib import admin
-from .models import Inmueble
+from .models import Inmueble, Region, Comuna
 
 
+@admin.register(Inmueble)
 class InmuebleAdmin(admin.ModelAdmin):
     list_display = (
-        "id",
         "nombre",
         "direccion",
         "comuna",
+        "region",
         "tipo_inmueble",
         "precio_mensual",
     )
 
-    search_fields = ("nombre", "direccion", "comuna", "tipo_inmueble")
+    search_fields = ("nombre", "direccion", "comuna__nombre", "region__nombre")
 
-    list_filter = ("comuna", "tipo_inmueble", "precio_mensual")
+    list_filter = ("region", "comuna", "tipo_inmueble")
+
+    list_select_related = ("comuna", "region")
 
 
-admin.site.register(Inmueble, InmuebleAdmin)
+@admin.register(Region)
+class RegionAdmin(admin.ModelAdmin):
+    list_display = ("nombre",)
+    search_fields = ("nombre",)
+
+
+@admin.register(Comuna)
+class ComunaAdmin(admin.ModelAdmin):
+    list_display = ("nombre", "region")
+    search_fields = ("nombre", "region__nombre")
+    list_filter = ("region",)
