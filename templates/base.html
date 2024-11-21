@@ -37,6 +37,39 @@
                 >Inmuebles</a
               >
             </li>
+
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'publicar_inmueble' %}"
+                >Publicar Inmuebles</a
+              >
+            </li>
+            <li class="nav-item">
+              <form action="{% url 'logout' %}" method="post" class="d-inline">
+                {% csrf_token %}
+                <button
+                  type="submit"
+                  class="btn nav-link"
+                  style="
+                    background: none;
+                    border: none;
+                    color: blue;
+                    cursor: pointer;
+                  "
+                >
+                  Cerrar Sesión
+                </button>
+              </form>
+            </li>
+
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'registro' %}">Registrarse</a>
+            </li>
+            {% endif %}
           </ul>
         </div>
       </div>

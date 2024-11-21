@@ -2,5 +2,8 @@ from django.apps import AppConfig
 
 
 class GestioninmueblesConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'gestionInmuebles'
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "gestionInmuebles"
+
+    def ready(self):
+        import gestionInmuebles.signals

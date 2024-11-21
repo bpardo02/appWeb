@@ -1,5 +1,8 @@
 from django.contrib import admin
 from .models import Inmueble, Region, Comuna
+from .forms import CustomUserCreationForm, CustomUserChangeForm
+from .models import CustomUser
+from django.contrib.auth.admin import UserAdmin
 
 
 @admin.register(Inmueble)
@@ -31,3 +34,26 @@ class ComunaAdmin(admin.ModelAdmin):
     list_display = ("nombre", "region")
     search_fields = ("nombre", "region__nombre")
     list_filter = ("region",)
+
+
+class CustomUserAdmin(UserAdmin):
+    add_form = CustomUserCreationForm
+    form = CustomUserChangeForm
+    model = CustomUser
+    list_display = [
+        "username",
+        "email",
+        "first_name",
+        "last_name",
+        "rut",
+        "tipo_usuario",
+    ]
+    fieldsets = UserAdmin.fieldsets + (
+        (None, {"fields": ("rut", "direccion", "telefono", "tipo_usuario")}),
+    )
+    add_fieldsets = UserAdmin.add_fieldsets + (
+        (None, {"fields": ("rut", "direccion", "telefono", "tipo_usuario")}),
+    )
+
+
+admin.site.register(CustomUser, CustomUserAdmin)

@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block content %}
+<h2>Perfil de Usuario</h2>
+<p><strong>Nombres:</strong> {{ usuario.first_name }}</p>
+<p><strong>Apellidos:</strong> {{ usuario.last_name }}</p>
+<p><strong>Correo:</strong> {{ usuario.email }}</p>
+<p><strong>RUT:</strong> {{ usuario.rut }}</p>
+<p><strong>Dirección:</strong> {{ usuario.direccion }}</p>
+<p><strong>Teléfono:</strong> {{ usuario.telefono }}</p>
+<p><strong>Tipo de Usuario:</strong> {{ usuario.tipo_usuario }}</p>
+<a href="{% url 'actualizar' %}" class="btn btn-primary">Editar Datos</a>
+{% endblock %}
