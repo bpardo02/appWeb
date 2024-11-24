@@ -1,0 +1,40 @@
+[
+  {
+    "model": "gestionInmuebles.Inmueble",
+    "pk": 1,
+    "fields": {
+      "nombre": "Casa en el centro",
+      "descripcion": "Hermosa casa en el centro de la ciudad con amplio jardín.",
+      "m2_construidos": 120.5,
+      "m2_totales": 200.0,
+      "estacionamientos": 2,
+      "habitaciones": 3,
+      "banos": 2,
+      "direccion": "Calle Principal 45",
+      "comuna": 1,
+      "region": 1,
+      "tipo_inmueble": "casa",
+      "precio_mensual": "450000.00",
+      "imagen": "inmuebles/casa_centro.jpg"
+    }
+  },
+  {
+    "model": "gestionInmuebles.Inmueble",
+    "pk": 2,
+    "fields": {
+      "nombre": "Departamento en la playa",
+      "descripcion": "Departamento con vista al mar, ideal para vacaciones.",
+      "m2_construidos": 85.0,
+      "m2_totales": 95.0,
+      "estacionamientos": 1,
+      "habitaciones": 2,
+      "banos": 1,
+      "direccion": "Playa Azul 123",
+      "comuna": 2,
+      "region": 2,
+      "tipo_inmueble": "departamento",
+      "precio_mensual": "320000.00",
+      "imagen": "inmuebles/depto_playa.jpg"
+    }
+  }
+]

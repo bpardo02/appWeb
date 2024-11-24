@@ -1,0 +1,32 @@
+[
+  {
+    "model": "gestionInmuebles.CustomUser",
+    "pk": 1,
+    "fields": {
+      "username": "usuario1",
+      "password": "pbkdf2_sha256$260000$8Z2n...hashed_password...",
+      "email": "usuario1@example.com",
+      "rut": "12345678-9",
+      "direccion": "Calle Falsa 123",
+      "telefono": "+56912345678",
+      "tipo_usuario": "arrendatario",
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "gestionInmuebles.CustomUser",
+    "pk": 2,
+    "fields": {
+      "username": "usuario2",
+      "password": "pbkdf2_sha256$260000$8Z2n...hashed_password...",
+      "email": "usuario2@example.com",
+      "rut": "98765432-1",
+      "direccion": "Avenida Siempre Viva 742",
+      "telefono": "+56987654321",
+      "tipo_usuario": "arrendador",
+      "is_staff": false,
+      "is_superuser": false
+    }
+  }
+]
