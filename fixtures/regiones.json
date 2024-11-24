@@ -1,0 +1,114 @@
+[
+  {
+    "model": "gestionInmuebles.region",
+    "pk": 1,
+    "fields": {
+      "nombre": "Arica y Parinacota"
+    }
+  },
+  {
+    "model": "gestionInmuebles.region",
+    "pk": 2,
+    "fields": {
+      "nombre": "Tarapacá"
+    }
+  },
+  {
+    "model": "gestionInmuebles.region",
+    "pk": 3,
+    "fields": {
+      "nombre": "Antofagasta"
+    }
+  },
+  {
+    "model": "gestionInmuebles.region",
+    "pk": 4,
+    "fields": {
+      "nombre": "Atacama"
+    }
+  },
+  {
+    "model": "gestionInmuebles.region",
+    "pk": 5,
+    "fields": {
+      "nombre": "Coquimbo"
+    }
+  },
+  {
+    "model": "gestionInmuebles.region",
+    "pk": 6,
+    "fields": {
+      "nombre": "Valparaíso"
+    }
+  },
+  {
+    "model": "gestionInmuebles.region",
+    "pk": 7,
+    "fields": {
+      "nombre": "Región del Libertador Gral. Bernardo O’Higgins"
+    }
+  },
+  {
+    "model": "gestionInmuebles.region",
+    "pk": 8,
+    "fields": {
+      "nombre": "Región del Maule"
+    }
+  },
+  {
+    "model": "gestionInmuebles.region",
+    "pk": 9,
+    "fields": {
+      "nombre": "Región de Ñuble"
+    }
+  },
+  {
+    "model": "gestionInmuebles.region",
+    "pk": 10,
+    "fields": {
+      "nombre": "Región del Biobío"
+    }
+  },
+  {
+    "model": "gestionInmuebles.region",
+    "pk": 11,
+    "fields": {
+      "nombre": "Región de la Araucanía"
+    }
+  },
+  {
+    "model": "gestionInmuebles.region",
+    "pk": 12,
+    "fields": {
+      "nombre": "Región de Los Ríos"
+    }
+  },
+  {
+    "model": "gestionInmuebles.region",
+    "pk": 13,
+    "fields": {
+      "nombre": "Región de Los Lagos"
+    }
+  },
+  {
+    "model": "gestionInmuebles.region",
+    "pk": 14,
+    "fields": {
+      "nombre": "Región Aisén del Gral. Carlos Ibáñez del Campo"
+    }
+  },
+  {
+    "model": "gestionInmuebles.region",
+    "pk": 15,
+    "fields": {
+      "nombre": "Región de Magallanes y de la Antártica Chilena"
+    }
+  },
+  {
+    "model": "gestionInmuebles.region",
+    "pk": 16,
+    "fields": {
+      "nombre": "Región Metropolitana de Santiago"
+    }
+  }
+]
