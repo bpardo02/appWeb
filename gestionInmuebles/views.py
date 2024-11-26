@@ -6,7 +6,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from .forms import CustomAuthenticationForm
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 from django.contrib.auth import login
-from .forms import InmuebleForm
+from .forms import InmuebleForm, EditProfileForm
 from django.core.exceptions import PermissionDenied
 from django.contrib import messages
 
@@ -97,3 +97,24 @@ def publicar_inmueble(request):
 
 def custom_permission_denied_view(request, exception=None):
     return render(request, "403.html", status=403)
+
+
+@login_required
+def profile_view(request):
+    return render(request, "profile.html", {"user": request.user})
+
+
+@login_required
+def edit_profile_view(request):
+    if request.method == "POST":
+        form = EditProfileForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Perfil actualizado con éxito.")
+            return redirect("profile")
+        else:
+            messages.error(request, "Por favor corrige los errores indicados.")
+    else:
+        form = EditProfileForm(instance=request.user)
+
+    return render(request, "edit_profile.html", {"form": form})

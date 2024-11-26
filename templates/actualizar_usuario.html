@@ -1,7 +1,81 @@
 {% extends "base.html" %} {% block content %}
-<h2>Actualizar Datos</h2>
-<form method="post">
-  {% csrf_token %} {{ form.as_p }}
-  <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-</form>
+<div class="container">
+  <h2 class="mb-4">Actualizar Datos</h2>
+  <form method="post" class="needs-validation" novalidate>
+    {% csrf_token %}
+    <div class="row g-3">
+      <!-- Nombre -->
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="id_first_name" class="form-label">Nombre</label>
+          {{ form.first_name }} {% if form.first_name.errors %}
+          <div class="invalid-feedback">
+            {{ form.first_name.errors|striptags }}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      <!-- Apellido -->
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="id_last_name" class="form-label">Apellido</label>
+          {{ form.last_name }} {% if form.last_name.errors %}
+          <div class="invalid-feedback">
+            {{ form.last_name.errors|striptags }}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      <!-- Correo Electrónico -->
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="id_email" class="form-label">Correo Electrónico</label>
+          {{ form.email }} {% if form.email.errors %}
+          <div class="invalid-feedback">{{ form.email.errors|striptags }}</div>
+          {% endif %}
+        </div>
+      </div>
+      <!-- Teléfono -->
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="id_telefono" class="form-label">Teléfono</label>
+          {{ form.telefono }} {% if form.telefono.errors %}
+          <div class="invalid-feedback">
+            {{ form.telefono.errors|striptags }}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      <!-- Dirección -->
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="id_direccion" class="form-label">Dirección</label>
+          {{ form.direccion }} {% if form.direccion.errors %}
+          <div class="invalid-feedback">
+            {{ form.direccion.errors|striptags }}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      <!-- Tipo de Usuario -->
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="id_tipo_usuario" class="form-label"
+            >Tipo de Usuario</label
+          >
+          {{ form.tipo_usuario }} {% if form.tipo_usuario.errors %}
+          <div class="invalid-feedback">
+            {{ form.tipo_usuario.errors|striptags }}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <!-- Botones -->
+    <div class="mt-4">
+      <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+      <a href="{% url 'profile' %}" class="btn btn-secondary">Cancelar</a>
+    </div>
+  </form>
+</div>
 {% endblock %}

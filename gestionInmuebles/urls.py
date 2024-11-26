@@ -1,7 +1,13 @@
 from django.urls import path
 from . import views
 from .views import CustomLoginView, CustomLogoutView
-from .views import registro_usuario, actualizar_usuario, perfil_usuario
+from .views import (
+    registro_usuario,
+    actualizar_usuario,
+    perfil_usuario,
+    profile_view,
+    edit_profile_view,
+)
 
 urlpatterns = [
     path("", views.index, name="index"),
@@ -14,4 +20,6 @@ urlpatterns = [
     path("perfil/", perfil_usuario, name="perfil"),
     path("registro/", views.registro_usuario_view, name="registro"),
     path("publicar-inmueble/", views.publicar_inmueble, name="publicar_inmueble"),
+    path("perfil/", profile_view, name="profile"),
+    path("perfil/editar/", edit_profile_view, name="edit_profile"),
 ]

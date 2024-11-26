@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block content %}
+<h1>Perfil</h1>
+<p><strong>Nombre de usuario:</strong> {{ user.username }}</p>
+<p><strong>Nombre:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+<p><strong>Email:</strong> {{ user.email }}</p>
+<p><strong>Teléfono:</strong> {{ user.telefono }}</p>
+<p><strong>Dirección:</strong> {{ user.direccion }}</p>
+<p><strong>Tipo de Usuario:</strong> {{ user.get_tipo_usuario_display }}</p>
+
+<a href="{% url 'edit_profile' %}" class="btn btn-primary">Editar Perfil</a>
+{% endblock %}

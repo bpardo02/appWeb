@@ -105,3 +105,34 @@ class InmuebleForm(forms.ModelForm):
             "precio_mensual": forms.NumberInput(attrs={"class": "form-control"}),
             "imagen": forms.ClearableFileInput(attrs={"class": "form-control"}),
         }
+
+
+class EditProfileForm(forms.ModelForm):
+    class Meta:
+        model = CustomUser
+        fields = [
+            "first_name",
+            "last_name",
+            "email",
+            "telefono",
+            "direccion",
+            "tipo_usuario",
+        ]
+        widgets = {
+            "first_name": forms.TextInput(
+                attrs={"class": "form-control", "placeholder": "Nombre"}
+            ),
+            "last_name": forms.TextInput(
+                attrs={"class": "form-control", "placeholder": "Apellido"}
+            ),
+            "email": forms.EmailInput(
+                attrs={"class": "form-control", "placeholder": "Correo Electrónico"}
+            ),
+            "telefono": forms.TextInput(
+                attrs={"class": "form-control", "placeholder": "Teléfono"}
+            ),
+            "direccion": forms.TextInput(
+                attrs={"class": "form-control", "placeholder": "Dirección"}
+            ),
+            "tipo_usuario": forms.Select(attrs={"class": "form-select"}),
+        }
