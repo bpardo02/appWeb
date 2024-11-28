@@ -1,0 +1,25 @@
+.maincontent {
+  background-color: #148197;
+  color: whitesmoke;
+}
+
+.fixed-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.fitcarousel {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card {
+  border: none;
+}
+
+footer {
+  color: black;
+}

@@ -1,9 +1,9 @@
 {% extends "base.html" %} {% block title %}Lista de Inmuebles - Gestión de
 Inmuebles{% endblock %} {% block content %}
-<h1 class="mb-4">Lista de Inmuebles</h1>
+<h1 class="mb-4 text-center">Lista de Inmuebles</h1>
 
 {% if inmuebles %}
-<div class="row">
+<div class="row m-5">
   {% for inmueble in inmuebles %}
   <div class="col-md-4 mb-4">
     <div class="card">
