@@ -2,6 +2,24 @@
 Inmuebles{% endblock %} {% block content %}
 <h1 class="mb-4 text-center">Lista de Inmuebles</h1>
 
+<div class="container">
+  <form method="get" action="{% url 'lista_inmuebles' %}">
+    <div class="row mb-4">
+      <div class="col-md-4">
+        <label for="id_region" class="form-label">Región</label>
+        {{ form.region }}
+      </div>
+      <div class="col-md-4">
+        <label for="id_comuna" class="form-label">Comuna</label>
+        {{ form.comuna }}
+      </div>
+      <div class="col-md-4">
+        <button type="submit" class="btn btn-primary mt-4">Filtrar</button>
+      </div>
+    </div>
+  </form>
+</div>
+
 {% if inmuebles %}
 <div class="row m-5">
   {% for inmueble in inmuebles %}
@@ -10,7 +28,7 @@ Inmuebles{% endblock %} {% block content %}
       {% if inmueble.imagen %}
       <img
         src="{{ inmueble.imagen.url }}"
-        class="card-img-top"
+        class="card-img-top containerfijo"
         alt="{{ inmueble.nombre }}"
       />
       {% endif %}

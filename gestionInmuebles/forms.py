@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
-from .models import CustomUser
+from .models import CustomUser, Region, Comuna
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .models import Inmueble
 
@@ -136,3 +136,28 @@ class EditProfileForm(forms.ModelForm):
             ),
             "tipo_usuario": forms.Select(attrs={"class": "form-select"}),
         }
+
+
+class InmuebleFilterForm(forms.Form):
+    region = forms.ModelChoiceField(
+        queryset=Region.objects.all(),
+        required=False,
+        empty_label="Seleccionar región",
+        widget=forms.Select(
+            attrs={
+                "class": "form-select",
+                "aria-label": "Seleccionar región",
+            }
+        ),
+    )
+    comuna = forms.ModelChoiceField(
+        queryset=Comuna.objects.all(),
+        required=False,
+        empty_label="Seleccionar comuna",
+        widget=forms.Select(
+            attrs={
+                "class": "form-select",
+                "aria-label": "Seleccionar comuna",
+            }
+        ),
+    )

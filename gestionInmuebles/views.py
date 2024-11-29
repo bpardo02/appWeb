@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Inmueble
+from .models import Inmueble, Region, Comuna
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
 from .forms import CustomAuthenticationForm
-from .forms import CustomUserCreationForm, CustomUserChangeForm
+from .forms import CustomUserCreationForm, CustomUserChangeForm, InmuebleFilterForm
 from django.contrib.auth import login
 from .forms import InmuebleForm, EditProfileForm
 from django.core.exceptions import PermissionDenied
@@ -12,8 +12,34 @@ from django.contrib import messages
 
 
 def lista_inmuebles(request):
-    inmuebles = Inmueble.objects.all()
-    return render(request, "lista_inmuebles.html", {"inmuebles": inmuebles})
+    inmuebles = Inmueble.objects.all()  # Obtener todos los inmuebles por defecto
+    form = InmuebleFilterForm(request.GET)  # Recibe los filtros desde el formulario GET
+
+    # Obtener todas las regiones y comunas
+    regiones = Region.objects.all()
+    comunas = Comuna.objects.all()
+
+    # Filtrar los inmuebles según los parámetros del formulario
+    if form.is_valid():
+        region = form.cleaned_data.get("region")
+        comuna = form.cleaned_data.get("comuna")
+
+        if region:
+            inmuebles = inmuebles.filter(region=region)
+        if comuna:
+            inmuebles = inmuebles.filter(comuna=comuna)
+
+    # Pasa las regiones y comunas al contexto
+    return render(
+        request,
+        "lista_inmuebles.html",
+        {
+            "inmuebles": inmuebles,
+            "form": form,
+            "regiones": regiones,
+            "comunas": comunas,
+        },
+    )
 
 
 def detalle_inmueble(request, pk):
