@@ -1,28 +1,66 @@
 {% extends 'base.html' %} {% block content %}
-<div class="container my-5">
-  <h1 class="mb-4">{{ inmueble.nombre }}</h1>
+<div class="container">
+  <h1 class="mb-4 text-center">{{ inmueble.nombre }}</h1>
+
+  <!-- Imagen del inmueble -->
   {% if inmueble.imagen %}
-  <img
-    src="{{ inmueble.imagen.url }}"
-    alt="{{ inmueble.nombre }}"
-    class="img-fluid mb-4"
-  />
+  <div class="text-center mb-4">
+    <img
+      src="{{ inmueble.imagen.url }}"
+      alt="{{ inmueble.nombre }}"
+      class="img-fluid rounded shadow w-50"
+    />
+  </div>
   {% endif %}
 
-  <p><strong>Descripción:</strong> {{ inmueble.descripcion }}</p>
-  <p><strong>Metros Construidos:</strong> {{ inmueble.m2_construidos }} m²</p>
-  <p><strong>Metros Totales:</strong> {{ inmueble.m2_totales }} m²</p>
-  <p><strong>Estacionamientos:</strong> {{ inmueble.estacionamientos }}</p>
-  <p><strong>Habitaciones:</strong> {{ inmueble.habitaciones }}</p>
-  <p><strong>Baños:</strong> {{ inmueble.banos }}</p>
-  <p><strong>Dirección:</strong> {{ inmueble.direccion }}</p>
-  <p><strong>Comuna:</strong> {{ inmueble.comuna.nombre }}</p>
-  <p><strong>Región:</strong> {{ inmueble.region.nombre }}</p>
-  <p><strong>Tipo de Inmueble:</strong> {{ inmueble.tipo_inmueble }}</p>
-  <p><strong>Precio Mensual:</strong> ${{ inmueble.precio_mensual }}</p>
+  <!-- Descripción y detalles del inmueble -->
+  <div class="row">
+    <div class="col-lg-8">
+      <p class="lead">
+        <strong>Descripción:</strong> {{ inmueble.descripcion }}
+      </p>
+    </div>
+    <div class="col-lg-4">
+      <div class="list-group">
+        <h5 class="list-group-item active">Detalles</h5>
+        <p class="list-group-item">
+          <strong>Metros Construidos:</strong> {{ inmueble.m2_construidos }} m²
+        </p>
+        <p class="list-group-item">
+          <strong>Metros Totales:</strong> {{ inmueble.m2_totales }} m²
+        </p>
+        <p class="list-group-item">
+          <strong>Estacionamientos:</strong> {{ inmueble.estacionamientos }}
+        </p>
+        <p class="list-group-item">
+          <strong>Habitaciones:</strong> {{ inmueble.habitaciones }}
+        </p>
+        <p class="list-group-item">
+          <strong>Baños:</strong> {{ inmueble.banos }}
+        </p>
+        <p class="list-group-item">
+          <strong>Dirección:</strong> {{ inmueble.direccion }}
+        </p>
+        <p class="list-group-item">
+          <strong>Comuna:</strong> {{ inmueble.comuna.nombre }}
+        </p>
+        <p class="list-group-item">
+          <strong>Región:</strong> {{ inmueble.region.nombre }}
+        </p>
+        <p class="list-group-item">
+          <strong>Tipo de Inmueble:</strong> {{ inmueble.tipo_inmueble }}
+        </p>
+        <p class="list-group-item">
+          <strong>Precio Mensual:</strong> ${{ inmueble.precio_mensual }}
+        </p>
+      </div>
+    </div>
+  </div>
 
-  <a href="{% url 'lista_inmuebles' %}" class="btn btn-primary mt-4"
-    >Volver a la lista</a
-  >
+  <div class="mt-4 text-center">
+    <a href="{% url 'lista_inmuebles' %}" class="btn btn-primary btn-lg"
+      >Volver a la lista</a
+    >
+  </div>
 </div>
 {% endblock %}

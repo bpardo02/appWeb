@@ -21,18 +21,20 @@ Inmuebles{% endblock %} {% block content %}
 </div>
 
 {% if inmuebles %}
-<div class="row m-5">
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+  <!-- Cambié g-4 a g-3 para menor espaciado -->
   {% for inmueble in inmuebles %}
-  <div class="col-md-4 mb-4">
-    <div class="card">
+  <div class="col p-5">
+    <div class="card h-100">
       {% if inmueble.imagen %}
       <img
         src="{{ inmueble.imagen.url }}"
-        class="card-img-top containerfijo"
+        class="card-img-top"
         alt="{{ inmueble.nombre }}"
+        style="object-fit: cover; height: 200px"
       />
       {% endif %}
-      <div class="card-body">
+      <div class="card-body d-flex flex-column">
         <h5 class="card-title">{{ inmueble.nombre }}</h5>
         <p class="card-text">
           <strong>Dirección:</strong> {{ inmueble.direccion }}<br />
@@ -41,7 +43,7 @@ Inmuebles{% endblock %} {% block content %}
         </p>
         <a
           href="{% url 'detalle_inmueble' inmueble.pk %}"
-          class="btn btn-primary"
+          class="btn btn-primary mt-auto"
           >Ver Detalles</a
         >
       </div>
